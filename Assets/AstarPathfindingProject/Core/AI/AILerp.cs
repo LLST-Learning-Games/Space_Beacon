@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace Pathfinding {
 	using Pathfinding.Util;
+	using System;
 
 	/// <summary>
 	/// Linearly interpolating movement script.
@@ -474,7 +475,10 @@ namespace Pathfinding {
 		/// and override the function in that script.
 		/// </summary>
 		public virtual void OnTargetReached () {
+			OnDestinationReached?.Invoke();
 		}
+
+		public Action OnDestinationReached;
 
 		/// <summary>
 		/// Called when a requested path has finished calculation.

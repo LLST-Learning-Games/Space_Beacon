@@ -34,7 +34,8 @@ namespace Pathfinding {
 		}
 
 		public void OnGUI () {
-			if (onlyOnDoubleClick && cam != null && Event.current.type == EventType.MouseDown && Event.current.clickCount == 2) {
+			//if (onlyOnDoubleClick && cam != null && Event.current.type == EventType.MouseDown && Event.current.clickCount == 2) {
+			if(Event.current.type == EventType.MouseDown) { 
 				UpdateTargetPosition();
 			}
 		}
