@@ -36,13 +36,14 @@ namespace Pathfinding {
 		public void OnGUI () {
 			//if (onlyOnDoubleClick && cam != null && Event.current.type == EventType.MouseDown && Event.current.clickCount == 2) {
 			if(Event.current.type == EventType.MouseDown) { 
-				UpdateTargetPosition();
+			//	UpdateTargetPosition();
 			}
 		}
 
 		/// <summary>Update is called once per frame</summary>
 		void Update () {
-			if (!onlyOnDoubleClick && cam != null) {
+			//if (!onlyOnDoubleClick && cam != null) {
+			if (Input.GetMouseButtonDown(0)) {
 				UpdateTargetPosition();
 			}
 		}

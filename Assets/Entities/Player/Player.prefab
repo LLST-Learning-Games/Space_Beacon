@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 46176048}
   - component: {fileID: 46176049}
   - component: {fileID: 46176053}
+  - component: {fileID: 1095486459}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -314,6 +315,20 @@ MonoBehaviour:
   _animator: {fileID: 1125925477662501655}
   _sprite: {fileID: 5831252220072291478}
   _aiLerp: {fileID: 46176048}
+--- !u!114 &1095486459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125925477662501652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a224975e508c67d43ac18b221b8d34d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movementTarget: {fileID: 0}
+  _playerAi: {fileID: 46176048}
 --- !u!1 &1537050440041786676
 GameObject:
   m_ObjectHideFlags: 0
