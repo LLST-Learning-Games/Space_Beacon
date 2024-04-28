@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &160784201
 AudioListener:
   m_ObjectHideFlags: 0
@@ -328,6 +328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 336159081}
   - component: {fileID: 336159082}
+  - component: {fileID: 336159083}
   m_Layer: 5
   m_Name: ChargeButton
   m_TagString: Untagged
@@ -365,6 +366,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 336159080}
   m_CullTransparentMesh: 1
+--- !u!114 &336159083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336159080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 0
+  m_TargetGraphic: {fileID: 385004187}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1744549040}
+        m_TargetAssemblyTypeName: ElectrictyGameController, Assembly-CSharp
+        m_MethodName: OnChargeButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &376769978
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +808,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233868207221eb540b841a8527cebe21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lights:
+  - {fileID: 376769980}
+  - {fileID: 1140030978}
+  - {fileID: 504805961}
+  - {fileID: 402973480}
+  - {fileID: 1939134718}
+  - {fileID: 1145253756}
+  _litColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &740712151
 GameObject:
   m_ObjectHideFlags: 0
@@ -1222,6 +1287,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5968dccb01c5f894282a23b6abf1286d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dial: {fileID: 1246194380}
+  _lights: {fileID: 702005637}
+  _electricityChange: 0.3
+  _chargeButton: {fileID: 336159083}
 --- !u!4 &1744549041
 Transform:
   m_ObjectHideFlags: 0
@@ -1465,7 +1534,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1836495181
 MonoBehaviour:
   m_ObjectHideFlags: 0

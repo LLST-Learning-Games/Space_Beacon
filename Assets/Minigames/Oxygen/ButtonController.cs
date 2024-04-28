@@ -13,7 +13,7 @@ public class ButtonController : MonoBehaviour
     [SerializeField] private Color _inactiveColor = Color.red;
     [SerializeField] private Image _image;
     [SerializeField] private ButtonController _otherButton;
-    [SerializeField] private LightArray _lights;
+    [SerializeField] private OxygenGameController _lights;
 
     private float _timeOnTimer = -1f; 
     private bool _isActive = false;

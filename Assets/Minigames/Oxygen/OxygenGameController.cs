@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LightArray : MonoBehaviour
+public class OxygenGameController : MonoBehaviour
 {
     [SerializeField] private List<Image> _lights;
     [SerializeField] private Color _litColor = Color.cyan;

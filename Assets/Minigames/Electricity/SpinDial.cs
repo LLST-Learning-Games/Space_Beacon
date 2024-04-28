@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ElectricityGameDial : MonoBehaviour
+public class SpinDial : MonoBehaviour
 {
     [SerializeField] private Image _dialImage;
+
+    public Action OnDialSpinComplete;
 
     private Camera _cam;
     private bool _isMouseDown = false;
@@ -13,6 +16,7 @@ public class ElectricityGameDial : MonoBehaviour
     private Vector3 _mousePosition = Vector3.zero;
     private Vector3 _dialCenterPos;
 
+    private float _angleOffset;
     private float _currentAngle;
     private float _lastAngle;
 
@@ -24,12 +28,11 @@ public class ElectricityGameDial : MonoBehaviour
 
     public void OnPointerDown()
     {
-        Debug.Log("MouseDown");
+        //_angleOffset = GetCurrentAngle() - _dialImage.rectTransform.rotation.z;
         _isMouseDown = true;
     }
     public void OnPointerReleased()
     {
-        Debug.Log("MouseUp");
         _isMouseDown = false;
     }
 
@@ -37,23 +40,22 @@ public class ElectricityGameDial : MonoBehaviour
     {
         if(_isMouseDown)
         {
-            Vector3 relative = Input.mousePosition - _dialCenterPos; 
-            _currentAngle = Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
+            _currentAngle = GetCurrentAngle() + _angleOffset;
             _dialImage.rectTransform.rotation = Quaternion.Euler(0, 0, -_currentAngle);
             
             if(_lastAngle > 100 && _currentAngle < -100)
             {
-                Debug.Log("Did a spin!");
+                OnDialSpinComplete?.Invoke();
             }
 
             _lastAngle = _currentAngle;
-
-            //Debug.Log("Mouse Pos " + Input.mousePosition);
-            Debug.Log("Relative Mouse Pos " + relative);
-            //Debug.Log("Dial pos " + _dialImage.rectTransform.position);
-            Debug.Log("Start pos " + _dialCenterPos);
-            Debug.Log("Angle " + _currentAngle);
         }
+    }
+
+    private float GetCurrentAngle()
+    {
+        Vector3 relative = Input.mousePosition - _dialCenterPos;
+        return Mathf.Atan2(relative.x, relative.y) * Mathf.Rad2Deg;
     }
 
 }
