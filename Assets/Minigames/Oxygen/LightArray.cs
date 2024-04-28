@@ -36,6 +36,7 @@ public class LightArray : MonoBehaviour
         {
             _oxygenSystem.AddResource(_oxygenProduced);
             _electricitySystem.RemoveResource(_electricityCost);
+
             _sceneManager.RequestSceneUnload(1);
             return;
         }
