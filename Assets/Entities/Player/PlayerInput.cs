@@ -33,10 +33,13 @@ namespace Player {
 		void Update () {
             if (Input.GetMouseButtonDown(0))
             {
-                if (_sceneManager.IsMinigameLoaded || EventSystem.current.IsPointerOverGameObject())
+                if (_sceneManager.IsMinigameLoaded  // block input if minigame is loaded - todo - probably should exit if we're clicking off the UI
+                    || EventSystem.current.IsPointerOverGameObject()    // early exit if over UI
+                    )
                 {
-                    return;     // todo - we may want a better design for this
+                    return;     
                 }
+
                 Vector3 newPosition = _cam.ScreenToWorldPoint(Input.mousePosition);
 
                 var hit = Physics2D.Raycast(newPosition, Vector2.zero);
@@ -56,6 +59,13 @@ namespace Player {
                     {
                         OnDestinationReached();
                     }
+                    return;
+                }
+
+                if (hit && hit.collider.gameObject.layer == 7) 
+                {
+                    var conversationStarter = hit.collider.gameObject.GetComponent<ConversationStarter>();
+                    conversationStarter.StartConversation();
                     return;
                 }
 
