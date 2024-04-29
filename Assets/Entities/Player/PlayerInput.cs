@@ -3,6 +3,7 @@ using System.Linq;
 using Pathfinding;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 namespace Player {
 	public class PlayerInput : MonoBehaviour {
@@ -30,9 +31,9 @@ namespace Player {
 
 
 		void Update () {
-			if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                if (_sceneManager.IsMinigameLoaded)
+                if (_sceneManager.IsMinigameLoaded || EventSystem.current.IsPointerOverGameObject())
                 {
                     return;     // todo - we may want a better design for this
                 }
@@ -45,8 +46,8 @@ namespace Player {
                     _currentInteractable.OnInteractionBegin();
 
                     //todo - this is hack, and it also doesn't work. Sort out why the distance calcuation is failing
-                    transform.position = new Vector3(transform.position.x,transform.position.y,0f);      
-                    if (Vector3.Distance(_currentInteractable.WalkToPosition,transform.position) > Mathf.Epsilon)
+                    transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
+                    if (Vector3.Distance(_currentInteractable.WalkToPosition, transform.position) > Mathf.Epsilon)
                     {
                         UpdateTargetPosition(_currentInteractable.WalkToPosition);
                         _playerAi.OnDestinationReached += OnDestinationReached;
@@ -58,9 +59,12 @@ namespace Player {
                     return;
                 }
 
-                CancelInteraction();
+                if (!hit || hit && hit.collider.gameObject.layer == 3)
+                {
+                    CancelInteraction();
 
-                UpdateTargetPosition(newPosition);
+                    UpdateTargetPosition(newPosition);
+                }
             }
         }
 
