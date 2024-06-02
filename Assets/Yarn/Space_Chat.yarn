@@ -2,12 +2,41 @@
 tags:
 ---
 
-Hello? Is anyone out there?
+Hello? Hello, are you awake? 
 
--> In space, no one can hear you!
--> Who's asking?
--> The goggles, they do nothing!
+-> What... what is this place?
+	This is a starfreighter. Or at least what's left of one.
+-> Who are you?
+	There's no time for that now.
+-> How long was I asleep?
+	I assume you were unconcious. 
 
-Whoever you are, I hope you can help us get this ship back online.
+I'm afraid this is an emergency.
+
+-> Emergency? What kind of emergency?
+
+The ship is in a critical state. I don't know who you are, but I hope I can trust you.
+The automatic oxygen generation is offline.
+
+-> Oxygen? 
+-> That sounds important.
+
+I'm afraid so. Oxygen is not necessary for my continued functioning, but I believe it is for yours.
+If we don't keep you supplied with oxygen, it will be difficult for you to improve the condition of the ship.
+
+-> How long do I have?
+	Not very long. 
+-> What do we do?
+	There is not much I can do. My hardware integrations are largely offline.
+
+But I can show you what to do. Look to the upper right corner of your HUD. Do you see that blue pressure meter? 
+
+-> I see it.
+
+That's a readout of the oxygen supply. It's at about 0.3 now and falling. 
+
+-> How do I stop it?
+
+It will continue to fall as long as you are breathing, I'm afraid. So our goal should not be to stop it.
 
 ===
