@@ -13,13 +13,13 @@ public class ElectrictyGameController : MonoBehaviour
     [SerializeField] private Button _chargeButton;
 
     private MinigameSceneManager _sceneManager;
-    private ShipResourceSystem _electricitySystem;
+    private WorldResource _electricitySystem;
 
     // Start is called before the first frame update
     void Start()
     {
         _sceneManager = FindFirstObjectByType<MinigameSceneManager>();
-        var shipSystemManager = FindAnyObjectByType<ShipResourceManager>();
+        var shipSystemManager = FindAnyObjectByType<WorldResourceManager>();
         _electricitySystem = shipSystemManager?.GetResourceByName("Electricity");
 
         _dial.OnDialSpinComplete += OnDialSpinComplete;

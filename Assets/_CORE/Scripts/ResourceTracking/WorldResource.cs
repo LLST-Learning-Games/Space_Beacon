@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShipResourceSystem : MonoBehaviour
+public class WorldResource : MonoBehaviour
 {
     [SerializeField] public string ResourceName;
     [SerializeField] private Slider _resourceSlider;

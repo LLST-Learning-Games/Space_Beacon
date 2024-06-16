@@ -13,13 +13,13 @@ public class OxygenGameController : MonoBehaviour
     private int _nextLitIndex = 0;
 
     private MinigameSceneManager _sceneManager;
-    private ShipResourceSystem _oxygenSystem;
-    private ShipResourceSystem _electricitySystem;
+    private WorldResource _oxygenSystem;
+    private WorldResource _electricitySystem;
 
     void Start()
     {
         _sceneManager = FindFirstObjectByType<MinigameSceneManager>();
-        var shipSystemManager = FindAnyObjectByType<ShipResourceManager>();
+        var shipSystemManager = FindAnyObjectByType<WorldResourceManager>();
         _oxygenSystem = shipSystemManager.GetResourceByName("Oxygen");
         _electricitySystem = shipSystemManager.GetResourceByName("Electricity");
 
