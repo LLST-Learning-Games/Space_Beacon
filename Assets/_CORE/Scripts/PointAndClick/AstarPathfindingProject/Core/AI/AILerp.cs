@@ -286,7 +286,7 @@ namespace Pathfinding {
 		public bool isStopped { get; set; }
 
 		/// <summary>\copydoc Pathfinding::IAstarAI::onSearchPath</summary>
-		public System.Action onSearchPath { get; set; }
+		public System.Action OnSearchPath { get; set; }
 
 		/// <summary>Cached Seeker component</summary>
 		protected Seeker seeker;
@@ -444,7 +444,7 @@ namespace Pathfinding {
 		/// <summary>Requests a path to the target.</summary>
 		public virtual void SearchPath () {
 			if (float.IsPositiveInfinity(destination.x)) return;
-			if (onSearchPath != null) onSearchPath();
+			if (OnSearchPath != null) OnSearchPath();
 
 			// This is where the path should start to search from
 			var currentPosition = GetFeetPosition();

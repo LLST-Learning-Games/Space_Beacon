@@ -1,68 +1,76 @@
 using Pathfinding;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimation : MonoBehaviour
+namespace Player
 {
-    [SerializeField] private Animator _animator;
-    [SerializeField] private SpriteRenderer _sprite;
-    [SerializeField] private AILerp _aiLerp;
-    private bool _isMoving = false;
-
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerAnimation : MonoBehaviour
     {
-        BindComponents();
+        [SerializeField] private Animator _animator;
+        [SerializeField] private SpriteRenderer _sprite;
+        [SerializeField] private AILerp _aiLerp;
+        private bool _isMoving = false;
 
-        _aiLerp.OnDestinationReached += OnPathEnd;
-        _aiLerp.onSearchPath += OnPathStarted;
-    }
-
-    [ContextMenu("Bind Components")]
-    public void BindComponents()
-    {
-        if (_animator is null)
+        // Start is called before the first frame update
+        void Start()
         {
-            _animator = GetComponent<Animator>();
+            BindComponents();
+
+            _aiLerp.OnDestinationReached += OnPathEnd;
+            _aiLerp.OnSearchPath += OnPathStarted;
         }
 
-        if (_aiLerp is null)
+        [ContextMenu("Bind Components")]
+        public void BindComponents()
         {
-            _aiLerp = GetComponent<AILerp>();
-        }
-
-        if(_sprite is null)
-        {
-            _sprite = GetComponent<SpriteRenderer>();
-        }
-    }
-
-    private void Update()
-    {
-        if (_isMoving)
-        {
-            if(_aiLerp.destination.x > transform.position.x)
+            if (_animator is null)
             {
-                _sprite.flipX = false;
+                _animator = GetComponent<Animator>();
             }
-            else
+
+            if (_aiLerp is null)
             {
-                _sprite.flipX = true;
+                _aiLerp = GetComponent<AILerp>();
+            }
+
+            if (_sprite is null)
+            {
+                _sprite = GetComponent<SpriteRenderer>();
             }
         }
-    }
 
-    private void OnPathStarted()
-    {
-        _animator.SetTrigger("StartWalk");
-        _isMoving = true;
-    }
+        private void Update()
+        {
+            if (_isMoving)
+            {
+                if (_aiLerp.destination.x > transform.position.x)
+                {
+                    _sprite.flipX = false;
+                }
+                else
+                {
+                    _sprite.flipX = true;
+                }
+            }
 
-    private void OnPathEnd()
-    {
-        _animator.SetTrigger("StartIdle");
-        _isMoving = false;
+            Debug.Log("Player is moving? " + _isMoving);
+        }
+
+        private void OnPathStarted()
+        {
+            if (!_isMoving)
+            {
+                _animator.SetTrigger("StartWalk");
+                _isMoving = true;
+            }
+        }
+
+        private void OnPathEnd()
+        {
+            if (_isMoving)
+            {
+                _animator.SetTrigger("StartIdle");
+                _isMoving = false;
+            }
+        }
     }
 }

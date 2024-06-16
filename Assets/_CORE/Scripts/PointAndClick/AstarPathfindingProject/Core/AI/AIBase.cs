@@ -330,7 +330,7 @@ namespace Pathfinding {
 		public bool isStopped { get; set; }
 
 		/// <summary>\copydoc Pathfinding::IAstarAI::onSearchPath</summary>
-		public System.Action onSearchPath { get; set; }
+		public System.Action OnSearchPath { get; set; }
 
 		/// <summary>True if the path should be automatically recalculated as soon as possible</summary>
 		protected virtual bool shouldRecalculatePath {
@@ -470,7 +470,7 @@ namespace Pathfinding {
 		/// <summary>\copydoc Pathfinding::IAstarAI::SearchPath</summary>
 		public virtual void SearchPath () {
 			if (float.IsPositiveInfinity(destination.x)) return;
-			if (onSearchPath != null) onSearchPath();
+			if (OnSearchPath != null) OnSearchPath();
 
 			Vector3 start, end;
 			CalculatePathRequestEndpoints(out start, out end);
