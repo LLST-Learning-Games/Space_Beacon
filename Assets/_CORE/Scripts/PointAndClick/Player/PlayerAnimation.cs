@@ -1,7 +1,7 @@
 using Pathfinding;
 using UnityEngine;
 
-namespace Player
+namespace PointAndClick.Player
 {
     public class PlayerAnimation : MonoBehaviour
     {
@@ -51,8 +51,6 @@ namespace Player
                     _sprite.flipX = true;
                 }
             }
-
-            Debug.Log("Player is moving? " + _isMoving);
         }
 
         private void OnPathStarted()

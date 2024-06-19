@@ -1,11 +1,9 @@
 using UnityEngine;
-using System.Linq;
 using Pathfinding;
-using System;
-using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using PointAndClick.Interactable;
 
-namespace Player {
+namespace PointAndClick.Player {
 	public class PlayerInput : MonoBehaviour {
         [SerializeField] private Transform _movementTarget;
 		[SerializeField] private AILerp _playerAi;
@@ -62,12 +60,12 @@ namespace Player {
                     return;
                 }
 
-                if (hit && hit.collider.gameObject.layer == 7) 
-                {
-                    var conversationStarter = hit.collider.gameObject.GetComponent<ConversationStarter>();
-                    conversationStarter.StartConversation();
-                    return;
-                }
+                //if (hit && hit.collider.gameObject.layer == 7) 
+                //{
+                //    var conversationStarter = hit.collider.gameObject.GetComponent<ConversationInteractableBridge>();
+                //    conversationStarter.StartConversation();
+                //    return;
+                //}
 
                 if (!hit || hit && hit.collider.gameObject.layer == 3)
                 {
