@@ -60,13 +60,6 @@ namespace PointAndClick.Player {
                     return;
                 }
 
-                //if (hit && hit.collider.gameObject.layer == 7) 
-                //{
-                //    var conversationStarter = hit.collider.gameObject.GetComponent<ConversationInteractableBridge>();
-                //    conversationStarter.StartConversation();
-                //    return;
-                //}
-
                 if (!hit || hit && hit.collider.gameObject.layer == 3)
                 {
                     CancelInteraction();
