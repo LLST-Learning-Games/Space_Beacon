@@ -25,6 +25,10 @@ namespace PointAndClick.Player {
 
         public void Start () {
 			_cam = Camera.main;
+            if (!_sceneManager)
+            {
+                FindMinigameSceneManager();
+            }
 		}
 
 
