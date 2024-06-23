@@ -7,35 +7,20 @@ namespace PointAndClick.Player {
 	public class PlayerInput : MonoBehaviour {
         [SerializeField] private Transform _movementTarget;
 		[SerializeField] private AILerp _playerAi;
-        [SerializeField] private MinigameSceneManager _sceneManager;
 
         private Camera _cam;
 		private InteractableController _currentInteractable;
 
-        [ContextMenu("Find Minigame Scene Manager")]
-        private void FindMinigameSceneManager()
-        {
-            _sceneManager = FindFirstObjectByType<MinigameSceneManager>();
-        }
-
-        private void Reset()
-        {
-            FindMinigameSceneManager();
-        }
 
         public void Start () {
 			_cam = Camera.main;
-            if (!_sceneManager)
-            {
-                FindMinigameSceneManager();
-            }
 		}
 
 
 		void Update () {
             if (Input.GetMouseButtonDown(0))
             {
-                if (_sceneManager.IsMinigameLoaded  // block input if minigame is loaded - todo - probably should exit if we're clicking off the UI
+                if (PlayerInputLock.IsPlayerInputLocked  // block input if minigame is loaded - todo - probably should exit if we're clicking off the UI
                     || EventSystem.current.IsPointerOverGameObject()    // early exit if over UI
                     )
                 {

@@ -15,11 +15,14 @@ public class MinigameSceneManager : MonoBehaviour
 
         SceneManager.LoadSceneAsync(index, LoadSceneMode.Additive);
         IsMinigameLoaded = true;
+
+        PlayerInputLock.RegisterLock("minigame_" + index);
     }
 
     public void RequestSceneUnload(int index)
     {
         SceneManager.UnloadSceneAsync(index);
         IsMinigameLoaded = false;
+        PlayerInputLock.ClearLock("minigame_" + index);
     }
 }
