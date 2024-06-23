@@ -1,4 +1,30 @@
-﻿title: Start
+﻿
+
+title: RoutingNode
+---
+<<declare $conversationCount = 0 as number>>
+
+<<if $conversationCount == 0>>
+	<<jump FirstChat>>
+<<else>>
+	<<jump Start>>
+<<endif>>
+
+
+===
+
+
+title: FirstChat
+---
+
+This is Conversation number 1. The next conversation will be another one.
+
+<<set $conversationCount = $conversationCount + 1>>
+
+===
+
+
+title: Start
 tags:
 ---
 
