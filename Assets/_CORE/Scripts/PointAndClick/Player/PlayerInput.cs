@@ -35,8 +35,6 @@ namespace PointAndClick.Player {
                     _currentInteractable = hit.collider.gameObject.GetComponent<InteractableController>();
                     _currentInteractable.OnInteractionBegin();
 
-                    //todo - this is hack, and it also doesn't work. Sort out why the distance calcuation is failing
-                    transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
                     if (Vector3.Distance(_currentInteractable.WalkToPosition, transform.position) > Mathf.Epsilon)
                     {
                         UpdateTargetPosition(_currentInteractable.WalkToPosition);
