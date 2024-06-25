@@ -1,6 +1,7 @@
 ﻿
 
 title: RoutingNode
+position: -90,-187
 ---
 <<declare $conversationCount = 0 as number>>
 
@@ -15,6 +16,7 @@ title: RoutingNode
 
 
 title: FirstChat
+position: 137,32
 ---
 
 This is Conversation number 1. The next conversation will be another one.
@@ -26,6 +28,7 @@ This is Conversation number 1. The next conversation will be another one.
 
 title: Start
 tags:
+position: -223,131
 ---
 
 Hello? Hello, are you awake? 

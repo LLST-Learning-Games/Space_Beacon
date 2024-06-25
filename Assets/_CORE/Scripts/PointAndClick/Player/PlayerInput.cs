@@ -28,6 +28,7 @@ namespace PointAndClick.Player {
                 }
 
                 Vector3 newPosition = _cam.ScreenToWorldPoint(Input.mousePosition);
+                newPosition.z = _cam.transform.position.z;
 
                 var hit = Physics2D.Raycast(newPosition, Vector2.zero);
                 if (hit && hit.collider.gameObject.layer == 6)

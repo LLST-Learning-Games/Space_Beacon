@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: 
   Description: 
   EnvironmentSprite: {fileID: 21300000, guid: eff7fcdd7efe4a747b1be6dab62277ff, type: 3}
-  InventorySprite: {fileID: 0}
+  InventorySprite: {fileID: 21300000, guid: eff7fcdd7efe4a747b1be6dab62277ff, type: 3}
